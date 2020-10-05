@@ -31,6 +31,9 @@ Numbered files help the user workout the order in which files should be used. Th
 }
 \examples{
 \donttest{
-renumber_gadget(path = ".", number_dir = FALSE, test_only = TRUE)
+#number files
+renumber(path = ".", number_dir = FALSE, test_only = TRUE)
+#remove prefix from directories and add new numbers
+renumber(path = "inst/tutorials", number_dir = TRUE,  test_only = TRUE, old_prefix = "\\\\d+-")
 }
 }

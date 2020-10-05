@@ -9,7 +9,10 @@
 #' @param test_only If TRUE will output data.frame showing changes that would be made. Files will be untouched.
 #' @examples
 #' \donttest{
-#' renumber_gadget(path = ".", number_dir = FALSE, test_only = TRUE)
+#' #number files
+#' renumber(path = ".", number_dir = FALSE, test_only = TRUE)
+#' #remove prefix from directories and add new numbers
+#' renumber(path = "inst/tutorials", number_dir = TRUE,  test_only = TRUE, old_prefix = "\\d+-")
 #' }
 #' @importFrom sortable add_rank_list bucket_list
 #' @importFrom shiny fluidRow observeEvent renderPrint verbatimTextOutput runGadget stopApp column
@@ -50,7 +53,7 @@ renumber <- function(path = ".", number_dir = TRUE, prefix = "", postfix = "-", 
             orientation = "horizontal",
             add_rank_list(
               text = "Drag from here",
-              labels = to_rename,
+              labels = basename(to_rename),
               input_id = "rank_list_1"
             ),
             add_rank_list(
@@ -94,10 +97,12 @@ renumber <- function(path = ".", number_dir = TRUE, prefix = "", postfix = "-", 
 
     old_names <- runGadget(ui, server)
     new_names <-  process(str = old_names, prefix = prefix, post_fix = postfix, old_prefix = old_prefix)
+    old_paths <- file.path(dirname(to_rename), old_names)
+    new_paths <- file.path(dirname(to_rename), new_names)
 
     if(test_only){
-      data.frame(old_names, new_names)
+      data.frame(old_paths, new_paths)
     } else {
-      fs::file_move(old_names, new_names)
+      fs::file_move(old_paths, new_paths)
     }
 }
