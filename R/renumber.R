@@ -95,8 +95,8 @@ renumber <- function(path = ".", number_dir = TRUE, prefix = "", postfix = "-", 
 
     old_names <- runGadget(ui, server)
     new_names <-  process(str = old_names, prefix = prefix, post_fix = postfix, old_prefix = old_prefix)
-    old_paths <- file.path(dirname(to_rename), old_names)
-    new_paths <- file.path(dirname(to_rename), new_names)
+    old_paths <- file.path(path, old_names)
+    new_paths <- file.path(path, new_names)
 
     if(test_only){
       data.frame(old_paths, new_paths)
