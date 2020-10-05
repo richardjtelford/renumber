@@ -13,7 +13,7 @@
 #' }
 #' @importFrom sortable add_rank_list bucket_list
 #' @importFrom shiny fluidRow observeEvent renderPrint verbatimTextOutput runGadget stopApp column
-#' @importFrom stringr str_remove
+#' @importFrom stringr str_remove str_pad
 #' @importFrom miniUI miniPage gadgetTitleBar miniContentPanel
 #' @importFrom htmltools tags HTML
 #' @export
