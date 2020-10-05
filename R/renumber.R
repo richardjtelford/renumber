@@ -18,7 +18,7 @@
 #' @importFrom htmltools tags HTML
 #' @export
 #'
-renumber_gadget <- function(path = ".", number_dir = TRUE, prefix = "", postfix = "-", old_prefix = "", test_only = FALSE){
+renumber <- function(path = ".", number_dir = TRUE, prefix = "", postfix = "-", old_prefix = "", test_only = FALSE){
   to_rename <- if(isTRUE(number_dir)) {
     list.dirs(path, recursive = FALSE)
   } else{
