@@ -20,3 +20,5 @@ Imports:
     stringr, 
     htmltools
 RoxygenNote: 7.1.1
+URL: https://github.com/richardjtelford/renumber
+BugReports: https://github.com/richardjtelford/renumber/issues
