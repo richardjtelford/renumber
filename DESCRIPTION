@@ -1,0 +1,22 @@
+Package: renumber
+Type: Package
+Title: Numbers or renumbers files or directories
+Version: 0.1.0
+Authors@R: 
+    person(given = "Richard",
+           family = "Telford",
+           role = c("aut", "cre"),
+           email = "richard.telford@uib.no",
+           comment = c(ORCID = "0000-0001-9826-3076"))
+Description: Numbers or renumbers files or directories to help users work out the correct order for using script files.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    shiny,
+    sortable,
+    fs,
+    miniUI, 
+    stringr, 
+    htmltools
+RoxygenNote: 7.1.1
