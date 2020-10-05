@@ -29,7 +29,8 @@ renumber_gadget <- function(path = ".", number_dir = TRUE, prefix = "", postfix 
     #remove any old prefix
     str <- str_remove(str, paste0("^", old_prefix))
     #add new prefix
-    str <- paste0(prefix, 1:length(str), postfix, str)
+    numbers <- str_pad(string = 1:length(str), width = max(nchar(1:length(str))),pad = 0)
+    str <- paste0(prefix, numbers, postfix, str)
     str
   }
 
