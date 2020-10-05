@@ -38,7 +38,7 @@ renumber <- function(path = ".", number_dir = TRUE, prefix = "", postfix = "-", 
   }
 
     ui <- miniPage(
-      gadgetTitleBar("My Gadget"),
+      gadgetTitleBar("Renumber"),
       miniContentPanel(
       tags$head(
         tags$style(HTML(".bucket-list-container {min-height: 350px;}"))
@@ -48,11 +48,11 @@ renumber <- function(path = ".", number_dir = TRUE, prefix = "", postfix = "-", 
           tags$b("Input"),
           width = 12,
           bucket_list(
-            header = "Drag the items in any desired bucket",
+            header = "Drag items to sort or not number",
             group_name = "bucket_list_group",
             orientation = "horizontal",
             add_rank_list(
-              text = "Drag from here",
+              text = "Number these",
               labels = basename(to_rename),
               input_id = "rank_list_1"
             ),
@@ -70,8 +70,6 @@ renumber <- function(path = ".", number_dir = TRUE, prefix = "", postfix = "-", 
           tags$b("Result"),
           column(
             width = 12,
-
-            tags$p("input$rank_list_1"),
             verbatimTextOutput("results_1"),
           )
         )
